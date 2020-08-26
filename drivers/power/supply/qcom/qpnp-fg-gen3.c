@@ -6085,8 +6085,8 @@ static struct thermal_zone_of_device_ops fg_gen3_tz_ops = {
 	.get_temp = fg_tz_get_temp,
 };
 
-#define FG_DELAY_BATT_ID_MS 1000
-#define FG_DELAY_SOC_WORK_MS 1000
+#define FG_DELAY_BATT_ID_MS 750
+#define FG_DELAY_SOC_WORK_MS 750
 static int fg_gen3_probe(struct platform_device *pdev)
 {
 	struct fg_chip *chip;
