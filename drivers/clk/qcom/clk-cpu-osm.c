@@ -41,7 +41,7 @@
 #include "clk-voter.h"
 #include "clk-debug.h"
 
-#define PERFCL_SKIP 13
+#define PERFCL_SKIP 12
 
 #define OSM_INIT_RATE			300000000UL
 #define XO_RATE				19200000UL
@@ -616,7 +616,7 @@ static struct clk_osm *clk_cpu_map[] = {
 
 static bool should_skip(unsigned int freq, int cpu)
 {
-	unsigned int skip_freqs_big[] = {1536000, 1612800, 1689600, 1766400, 1843200, 1920000, 2092800, 2169600, 2400000, 2745600, 2764800, 2784000, 2803200};
+	unsigned int skip_freqs_big[] = {1536000, 1612800, 1689600, 1766400, 1843200, 1920000, 2092800, 2169600, 2400000, 2745600, 2764800, 2784000};
 	int i;
 
         if (cpu > 3 && cpu < 8)
