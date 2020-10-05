@@ -106,18 +106,14 @@ struct dsi_backlight_config {
 	enum dsi_backlight_type type;
 	enum bl_update_flag bl_update;
 
-	u32 bl_update_delay;
 	u32 bl_min_level;
 	u32 bl_max_level;
-	u32 bl_typical_level;
 	u32 brightness_max_level;
 	u32 bl_level;
 	u32 bl_scale;
 	u32 bl_scale_ad;
 
 	int en_gpio;
-	bool bl_remap_flag;
-	bool doze_brightness_varible_flag;
 	bool dcs_type_ss;
 	/* PWM params */
 	bool pwm_pmi_control;
@@ -269,9 +265,7 @@ struct dsi_panel {
 	bool fod_hbm_enabled;
 	bool in_aod;
 	u32 doze_backlight_threshold;
-	u32 dc_threshold;
 	ktime_t fod_hbm_off_time;
-	bool dc_enable;
 };
 
 static inline bool dsi_panel_ulps_feature_enabled(struct dsi_panel *panel)
@@ -372,6 +366,11 @@ struct dsi_panel *dsi_panel_ext_bridge_get(struct device *parent,
 
 int dsi_panel_parse_esd_reg_read_configs(struct dsi_panel *panel,
 				struct device_node *of_node);
+
+int dsi_display_read_panel(struct dsi_panel *panel,
+				struct dsi_read_config *read_config);
+
+int panel_disp_param_send_lock(struct dsi_panel *panel, int param);
 
 void dsi_panel_ext_bridge_put(struct dsi_panel *panel);
 
